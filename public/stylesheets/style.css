@@ -1,0 +1,211 @@
+/*General CSS for every Page
+------------------------------------------------------------------------------------------*/
+
+h1
+{
+  text-align: center;
+  color: white;
+}
+
+h2
+{
+  color: white;
+  text-align: center;
+}
+
+body
+{
+  margin:auto;
+  background-image: url('/images/Office.png'); /*Image Source - https://freddy-fazbears-pizza.fandom.com/wiki/The_Office_(FNaF2)*/
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover; /* Adjust as needed */
+  background-position: center center; /* Adjust as needed */
+  background-attachment: fixed;
+}
+
+p
+{
+  color: white;
+}
+
+
+.tab 
+{
+  display: flex center;
+  border: 5px solid #000000;
+  background-color:#cb1313;
+  text-align: center;
+  margin: 0;
+}
+
+.box
+{
+  font-size: small;
+  float: right;
+}
+
+footer
+{
+  text-align: center;
+}
+
+/*CSS for links on Nav Bar*/
+.tab a:link, .tab a:visited 
+{
+  padding: 16px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: #251d12;
+} 
+  
+  a:hover, a:active 
+{
+  background-color: #535991;
+  color: #251d12;
+}
+  
+
+/*General CSS for Buttons*/
+button
+{
+  display: block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid #d61010; 
+  color: black;
+  background-color: #cbc1c1; 
+  border-radius: 20px; 
+}
+
+
+button:hover {
+  background-color: #d61010;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+/*CSS for Home Page
+------------------------------------------------------------------------------------------*/
+.home p
+{
+  margin: 15px;
+  text-align: center;
+  font-size: larger;
+}
+
+
+/*CSS for Workshop Signup Page
+------------------------------------------------------------------------------------------*/
+
+.signUp
+{
+  font-size: xx-small;
+  display: block;
+  color: white;
+  font-size: larger;
+  text-align: left;
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
+.signUp h2
+{
+  text-align: center;
+}
+
+.signUp button
+{
+  text-align: center;
+  font-size: smaller;
+  border-color: aqua;
+}
+
+.signUp button:hover
+{
+  color: black;
+  background-color:aqua;
+}
+
+/*CSS for View Bookings Page
+------------------------------------------------------------------------------------------*/
+.workshop-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+}
+
+.workshop-entry {
+  text-align: center;
+  width: 28%; 
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  background-color: black;
+  box-sizing: border-box; 
+  color: #000000;
+}
+
+
+/*CSS for Modifying Workshop Page
+------------------------------------------------------------------------------------------*/
+.modifypage
+{
+  text-align: center;
+  margin:0;
+  background-image: url('/images/Office1.jpg'); /*https://www.turbosquid.com/3d-models/3d-fnaf-1-office-complete-1898154 + https://pyxis.nymag.com/v1/imgs/7e7/d66/376dfa0668757531c580c15033b63136ba-15-ryangosling-silo.rvertical.w330.png*/
+  background-size: cover;
+  background-position: top;
+  color: white;
+}
+
+
+.modifypage form
+{
+  font-size: x-large;
+  color: white;
+  background-color: #000000;
+  margin-left: 34%;
+  margin-right: 34%;
+  padding: 0.2%;
+  padding: 1%;
+  border: 3px solid white;
+}
+
+
+/*CSS for About Us Page
+------------------------------------------------------------------------------------------*/
+.founder
+{
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*CSS for Help Page
+------------------------------------------------------------------------------------------*/
+.help
+{
+  font-size: larger;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

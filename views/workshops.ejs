@@ -1,0 +1,50 @@
+<%- include('partials/header.ejs') -%>
+<body>
+
+
+            <div class="signUp">
+                <form action="/workshops/register" method="post">
+                    <h2>Sign up to a Workshop!</h2>
+                    Enter your First Name: <input type="text" class="box" name="fname" placeholder="First Name"  maxlength="22" required />
+                    <br>
+                    Enter your Last Name: <input type="text" class="box" name="lname" placeholder="Last Name"  maxlength="22" required />
+                    <br>
+                    Enter your Email: <input type="email" class="box" name="email" placeholder="Email" maxlength="30" required />
+                    <br>
+                    Enter your phone Number: <input type="tel" class="box" name="phNo" placeholder="Mobile" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10); //Replaces any non number with nothing, essentially stops user from entering anything but numbers, also limits input to 10 characters-->
+                                                                                                                                  this.setCustomValidity(this.value.length !== 10 ? 'Phone Numbers must be 10 digits': '');" /> <!--Requires the input to be a Minimum of 10 characters -->
+                    <br>
+                    Enter the Date you would like to book: <input type="date" class="box" name="dateOfWorkshop" placeholder="Pick a Date" 
+                    required min="2024-05-01" max="2024-08-01" />
+                    <br>
+                    Select your Preffered Workshop Time:
+                    <br>
+                    <input type="radio" id="time1" name="timeofWorkshop" value="13:00" required>
+                    <label for="time1">13:00</label><br>
+                    <input type="radio" id="time2" name="timeofWorkshop" value="15:00" required>
+                    <label for="time2">15:00</label>
+                    <br>
+                    Enter your Card Number: <input type="text" class="box" name="card_number" placeholder="Card Number" minlength="16" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16); //Replaces any non number with nothing, essentially stops user from entering anything but numbers, also limits input to 16 characters-->
+                                                                                                                                                                      this.setCustomValidity(this.value.length !== 16 ? 'Card Numbers must have 16 digits': '');" /> <!--Requires the input to be a Minimum of 16 characters -->
+                    <br>
+                    Enter your Cards CVV: <input type="password" class="box" name="card_cvv" placeholder="CVV" minlength="3" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 3); //Replaces any non number with nothing, essentially stops user from entering anything but numbers, also limits input to 3 characters-->
+                                                                                                                                               this.setCustomValidity(this.value.length !== 3 ? 'CVV must be 3 digits': '');" /> <!--Requires the input to be a Minimum of 3 characters --> 
+                    <br>
+                    Enter your Cards Expiry Date: <input type="month" class="box" name="card_expiry_date" placeholder="Expiry Date" required min="2023-11" />
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+
+                <script> //JAVASCRIPT FOR VALIDATING CARD EXPIRY DATE IS IN THE FUTURE
+                    var currentDate = new Date(); //makes new date object
+                    var year = currentDate.getFullYear(); //gets the current year
+                    var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); //gets the current month and converts it to javascript fromat (starts at 0 for January), adds a 0 before if the number is single digit.
+                    document.getElementsByName('card_expiry_date')[0].setAttribute('min', `${year}-${month}`); //sets the input required to be wat minimum whatever the current date is.
+                  </script>
+
+        </div>
+
+
+</body>
+
+<%- include('partials/footer.ejs') %>

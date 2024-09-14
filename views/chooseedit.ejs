@@ -1,0 +1,17 @@
+<%- include('partials/header.ejs') -%>
+<body class = "modifypage">
+  <h1>Entries</h1>
+
+  <form action="/workshops/edit" method="get">
+    <label for="WorkshopID">Select a Workshop Booking to edit: </label>
+    <select id="WorkshopID" name="WorkshopID">
+      <% entries.forEach(entry => { %>
+        <option value="<%= entry._id %>"><%= entry.fname + " " +  entry.lname + ": " + entry.dateOfWorkshop.toISOString().split('T')[0] %></option>
+      <% }); %>
+    </select>
+    <button type="submit">Edit Entry</button>
+  </form>
+  
+
+</body>
+<%- include('partials/footer.ejs') %>

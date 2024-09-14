@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') -%>
+<body class="viewing">
+  <h1>Search for Workshop Entries</h1>
+
+  <div class="signUp">
+    <form action="/workshops/reportEntries" method="post">
+      Enter your First Name: <input type="text" class="box" name="fname" id="fname" placeholder="First Name" maxlength="22" required>
+      <br>
+      Enter your Last Name: <input type="text" class="box" name="lname" id="lname" placeholder="Last Name" maxlength="22" required>
+      <br>
+      Enter the Start Date: <input type="date" class="box" id="startDate" name="startDate" min="2024-05-01" max="2024-08-01" required/>
+      <br>
+      Enter the End Date: <input type="date" class="box" id="endDate" name="endDate" max="2024-08-01" required>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>//Javascript for Setting the minimum input of end date to be dynamically set to the value chosen by user for start date, so the user cant pick an ending date less than the start date
+    const startDateInput = document.getElementById('startDate'); //gets the startDate input element
+    const endDateInput = document.getElementById('endDate'); //gets the endDate input element
+    startDateInput.addEventListener('input', function () { //waits for startdate to be input, 
+      endDateInput.min = startDateInput.value; //then sets enddate min to that date.
+    });
+  </script>
+
+</body>
+<%- include('partials/footer.ejs') %>

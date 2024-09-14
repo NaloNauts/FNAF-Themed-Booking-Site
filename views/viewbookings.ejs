@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs') -%>
+<body class="viewing">
+  <h1>View Bookings</h1>
+
+  <div class="workshop-container">
+    <% bookings.forEach(workshop => { %>
+      <div class="workshop-entry">
+        <h2>Name: <%= workshop.fname %> <%= workshop.lname %></h2>
+        <p>Email: <%= workshop.email %></p>
+        <p>Phone Number: <%= workshop.phNo %></p>
+        <p>Date of Workshop: <%= workshop.dateOfWorkshop.toISOString().split('T')[0] %></p>
+        <p>Time of Workshop: <%= workshop.timeofWorkshop %></p>
+      </div>
+    <% }); %>
+  </div>
+
+</body>
+<%- include('partials/footer.ejs') %>

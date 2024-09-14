@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') -%>
+<body class="modifypage">
+  <h1>Entries</h1>
+
+  <form action="/workshops/delete" method="post" onsubmit="return confirm('Are you sure you want to delete this entry?');">
+    <label for="WorkshopID">Select a Workshop Booking to delete: </label>
+    <select id="WorkshopID" name="WorkshopID">
+      <% entries.forEach(entry => { %>
+        <option value="<%= entry._id %>"><%= entry.fname + " " +  entry.lname + ":" + entry.dateOfWorkshop.toISOString().split('T')[0] %></option>
+      <% }); %>
+    </select>
+    <button type="submit">Delete Entry</button>
+  </form>
+
+</body>
+<%- include('partials/footer.ejs') %>

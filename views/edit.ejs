@@ -1,0 +1,43 @@
+<%- include('partials/header.ejs') -%>
+
+<body>
+
+            <div class="signUp">
+                  <form action="/workshops/update/<%= workshop._id %>" method="post">
+                    <h2>Edit Your Workshop Details!</h2>
+                    Enter your First Name: <input type="text" class="box" name="fname" placeholder="First Name" value="<%= workshop.fname %>" maxlength="22" required/>
+                    <br>
+                    Enter your Last Name: <input type="text" class="box" name="lname" placeholder="Last Name" value="<%= workshop.lname %>" maxlength="22" required/>
+                    <br>
+                    Enter your Email: <input type="email" class="box" name="email" placeholder="Email" value="<%= workshop.email %>" maxlength="30" required/>
+                    <br>
+                    Enter your phone Number: <input type="number" class="box" name="phNo" placeholder="Mobile" value="<%= workshop.phNo %>" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10); //Replaces any non number with nothing, essentially stops user from entering anything but numbers, also limits input to 10 characters-->
+                                                                                                                                                                  this.setCustomValidity(this.value.length !== 10 ? 'Phone Numbers must be 10 digits': '');" /> <!--Requires the input to be a Minimum of 10 characters -->
+                    <br>
+                    
+                    Enter the Date you would like to book <input type="date" class="box" name="dateOfWorkshop" placeholder="Pick a Date"
+                    min="2024-05-01" max="2024-08-01" value="<%= workshop.dateOfWorkshop.toISOString().split('T')[0] %>" required/>
+                    <br>
+
+                    Select your Preffered Workshop Time:
+                    <br>
+                    <input type="radio" id="time1" name="timeofWorkshop" value="13:00" required <% if (workshop.timeofWorkshop === "13:00") { %>checked<% } %> >
+                    <label for="time1">13:00</label><br>
+                    <input type="radio" id="time2" name="timeofWorkshop" value="15:00" required <% if (workshop.timeofWorkshop === "15:00") { %>checked<% } %>>
+                    <label for="time2">15:00</label><br>
+                    Enter your Card Number: <input type="number" class="box" name="card_number" placeholder="Card Number" value="<%= workshop.card_number %>" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16); //Replaces any non number with nothing, essentially stops user from entering anything but numbers, also limits input to 16 characters-->
+                                                                                                                                                                       this.setCustomValidity(this.value.length !== 16 ? 'Card Numbers must have 16 digits': '');" /> <!--Requires the input to be a Minimum of 16 characters -->
+                    <br>
+                    Enter your Cards CVV: <input type="password" class="box" name="card_cvv" placeholder="CVV" value="<%= workshop.card_cvv %>" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 3); //Replaces any non number with nothing, essentially stops user from entering anything but numbers, also limits input to 3 characters-->
+                    this.setCustomValidity(this.value.length !== 3 ? 'CVV must be 3 digits': '');" /> <!--Requires the input to be a Minimum of 3 characters -->
+                    <br>
+                    Enter your Cards Expiry Date: <input type="month" class="box" name="card_expiry_date" placeholder="Expiry Date" value="<%= workshop.card_expiry_date.toISOString().split('T')[0].slice(0, 7) %>" required/>
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+        </div>
+
+
+</body>
+
+<%- include('partials/footer.ejs') %> 
